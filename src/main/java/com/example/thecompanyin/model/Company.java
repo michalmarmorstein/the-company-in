@@ -19,6 +19,7 @@ public class Company {
     private String domain;
     private String description;
     private CompanyCategory category;
+    private String type;
     private CompanyMetrics metrics;
     private String location;
 //    private String legalName;

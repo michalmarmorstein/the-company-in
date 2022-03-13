@@ -1,18 +1,28 @@
 package com.example.thecompanyin.service;
 
 import com.example.thecompanyin.model.Company;
+import com.sun.javafx.collections.ArrayListenerHelper;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CompanyService {
 
+    private ArrayList<Company> companies = new ArrayList<>(); //TODO persist
+
     public Company getCompanyByDomain(String domain){
 
         Company company = getCompany(domain);
+        companies.add(company);
         return company;
+    }
+
+    public List<Company> getAllCompanies(){
+        return companies;
     }
 
     //TODO move to network service
